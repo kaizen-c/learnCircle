@@ -1,12 +1,12 @@
-version: 2.1
-jobs:
-  MyFirstJob:
-  commands:
-    sayhello:
-      description: "A very simple command for demonstration purposes"
-      parameters:
-        to:
-          type: string
-          default: "Hello World"
-      steps:
-        - run: echo << parameters.to >>
+version: 2
+jobs: 
+  hello circle:
+    steps:
+    - run: echo "hellooooo"
+
+
+workflows:
+  version: 2
+  running NodeJs App:
+    jobs:
+      - hello circle
