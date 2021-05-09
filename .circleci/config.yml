@@ -1,9 +1,9 @@
-version: 2.1
-    commands:
-      greeting:
-        parameters:
-          myparam:
-            default: "First Parameter check"
-            type: string
-      steps:
-        - run: echo "hello <<parameters.myparam>>"
+commands:
+  sayhello:
+    description: "A very simple command for demonstration purposes"
+    parameters:
+      to:
+        type: string
+        default: "Hello World"
+    steps:
+      - run: echo << parameters.to >>
