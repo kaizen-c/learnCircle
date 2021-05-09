@@ -1,11 +1,11 @@
 version: 2.1
 jobs:
   first Job:
-  commands:
-    greeting:
-      parameters:
-        myparam:
-          default: "First Parameter check"
-          type: string
-    steps:
-      - run: echo "hello <<parameters.myparam>>"
+    commands:
+      greeting:
+        parameters:
+          myparam:
+            default: "First Parameter check"
+            type: string
+      steps:
+        - run: echo "hello <<parameters.myparam>>"
