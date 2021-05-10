@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   Hello World Job:
     docker:
-      - image: Ubuntu
+      - image: ubuntu
     steps:
       - run: echo "Helloooooooooooooooo" > mybook.txt
       - run: cat mybook.txt
