@@ -1,12 +1,15 @@
-version: 2
-jobs: 
-  hello circle:
+version: 2.1
+jobs:
+  Hello World Job:
+    docker:
+      - image: Ubuntu
     steps:
-    - run: echo "hellooooo"
-
+      - run: echo "Helloooooooooooooooo" > mybook.txt
+      - run: cat mybook.txt
+      - run: ls
 
 workflows:
-  version: 2
-  running NodeJs App:
+  FunnyFlow:
     jobs:
-      - hello circle
+      - Hello World Job
+  
