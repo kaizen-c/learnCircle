@@ -6,10 +6,34 @@ jobs:
     steps:
       - run: echo "Helloooooooooooooooo" > mybook.txt
       - run: cat mybook.txt
+      - run: mkdir -p cdaworkspace
+      - run: cp mybook.txt cdaworkspace
+      - run: echo "NewFile created cda" > cdaworkspace/ssrs.txt
       - run: ls
+      - run: cd cdaworkspace && ls
+      - persist_to_workspace:
+          root: cdaworkspace
+          paths:
+            - mybook.txt
+            - ssrs.txt
+
+  Second In Command:
+    docker:
+      - image: alpine/openssl
+    steps:
+      - run: echo "SecondInCommand" >sic.txt
+      - attach_workspace:
+          at: cdaworkspace
+      - run: ls
+      - run: cd cdaworkspace && ls
+
+    
 
 workflows:
   FunnyFlow:
     jobs:
       - Hello World Job
+      - Second In Command:
+          requires:
+            - Hello World Job
   
